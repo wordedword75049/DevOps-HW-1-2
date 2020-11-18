@@ -1,0 +1,114 @@
+{
+  "name": "conference-abstracts-annotations",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "NODE_ENV=production webpack --config webpack/webpack.prod.js",
+    "dev": "webpack-dev-server --config webpack/webpack.dev.js",
+    "stylelint": "stylelint '**/*.scss'",
+    "test": "TZ=Europe/Moscow jest --env=jsdom --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://bitbucket.org/bostongene/conference-abstracts-annotations/src/master/"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.11.1",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/plugin-proposal-export-default-from": "^7.10.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.11.0",
+    "@babel/plugin-transform-runtime": "^7.11.0",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-react": "^7.10.4",
+    "@babel/preset-typescript": "^7.10.4",
+    "@types/enzyme": "^3.10.5",
+    "@types/enzyme-adapter-react-16": "^1.0.6",
+    "@types/jest": "^26.0.10",
+    "@types/lodash": "^4.14.161",
+    "@types/react-dom": "^16.9.8",
+    "@types/react-router-dom": "^5.1.5",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^6.0.3",
+    "css-loader": "^4.2.1",
+    "dotenv-webpack": "^2.0.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.3",
+    "enzyme-to-json": "^3.5.0",
+    "error-overlay-webpack-plugin": "^0.4.1",
+    "eslint": "^7.7.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.20.6",
+    "eslint-plugin-react-hooks": "^4.1.0",
+    "html-webpack-plugin": "^4.3.0",
+    "husky": "^4.2.5",
+    "jest": "^26.4.0",
+    "lint-staged": "^10.2.11",
+    "mini-css-extract-plugin": "^0.10.0",
+    "node-sass": "^4.14.1",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^10.0.1",
+    "simple-progress-webpack-plugin": "^1.1.2",
+    "style-loader": "^1.2.1",
+    "stylelint": "^13.6.1",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-order": "^4.1.0",
+    "stylelint-scss": "^3.18.0",
+    "ts-jest": "^26.2.0",
+    "typescript": "^3.9.7",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^5.1.2"
+  },
+  "jest": {
+    "coverageReporters": [
+      "text",
+      "lcov"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "moduleNameMapper": {
+      "\\.(css|scss)$": "<rootDir>/src/styleMock.ts"
+    },
+    "modulePaths": [
+      "<rootDir>/src"
+    ],
+    "setupFiles": [
+      "<rootDir>/src/shimSetup.ts",
+      "<rootDir>/src/enzymeSetup.ts"
+    ]
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.scss": [
+      "yarn stylelint --fix",
+      "git add"
+    ]
+  },
+  "dependencies": {
+    "@bostongene/frontend-components": "^1.0.0",
+    "@types/react-table-filter": "^1.0.1",
+    "axios": "^0.20.0",
+    "command": "0.0.5",
+    "csvtojson": "^2.0.10",
+    "dotenv": "^8.2.0",
+    "flexboxgrid2": "^7.2.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0",
+    "react-table-filter": "^2.0.1"
+  }
+}

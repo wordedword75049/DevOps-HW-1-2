@@ -1,0 +1,12 @@
+{
+  "publicMen": [
+    { "id": 1, "name": "Adam Smith", "age": 60, "city": "Edinburgh", "country": "UK" },
+    {
+      "id": 2,
+      "name": "Jack London",
+      "age": 24,
+      "city": "San Francisco",
+      "country": "USA"
+    }
+  ]
+}

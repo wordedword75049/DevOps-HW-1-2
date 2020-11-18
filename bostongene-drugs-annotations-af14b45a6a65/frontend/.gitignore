@@ -1,0 +1,39 @@
+venv/
+.idea/
+
+# IDEA
+.idea
+.shelf
+out
+*.ipr
+*.iml
+*.iws
+
+# VScode
+.vscode/
+
+# EJC
+bin
+.settings
+.classpath
+.project
+
+# STS4
+.sts4-cache
+
+# misc
+*.css
+.DS_Store
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+coverage
+derby.log
+dist
+node_modules
+npm-debug.log*
+yarn-error.log
+styleguide/
+build

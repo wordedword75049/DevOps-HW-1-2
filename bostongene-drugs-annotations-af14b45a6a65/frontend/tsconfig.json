@@ -1,0 +1,20 @@
+{
+  "exclude": ["node_modules"],
+  "compilerOptions": {
+    "baseUrl": "./src/",
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "es5"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "es2015",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "noEmit": true,
+    "jsx": "preserve",
+    "typeRoots": ["node_modules/@types"]
+  }
+}

@@ -1,0 +1,228 @@
+swagger: "2.0"
+info:
+  description: "This is a Drugs Annotations webclient REST API architecture design. It consist of two requests with two endpoints respectively.
+  First one displays the table of possible drug candidates, whilst the second one gives information about a candidate"
+  version: "1.0.0"
+  title: "Drugs Annotations webclient REST endpoints"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "apiteam@swagger.io"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+basePath: "/v2"
+tags:
+- name: "drug-candidates"
+schemes:
+- "https"
+- "http"
+paths:
+  /webclient/drugs-candidates:
+    get:
+      tags:
+      - "drug-candidates"
+      summary: " Table of possible candidates for drugs"
+      description: "Display table of possible candidates for drugs"
+      operationId: "drugsCandidatesTable"
+      produces:
+      - "application/xml"
+      - "application/json"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/drugsCandidates"
+
+
+  /webclient/drugs-candidates/{candidateId}:
+    get:
+      tags:
+      - "drug-candidates"
+      summary: "Detailed information about the candidate"
+      description: "Display detailed information about the candidate"
+      operationId: "drugsCandidatesDetailedInformation"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "candidateId"
+        in: "query"
+        in: "path"
+        description: "candidade id from database"
+        required: true
+        type: "string"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            oneOf:
+              - $ref: '#/definitions/ashDrugsCandidate'
+              - $ref: '#/definitions/nctDrugsCandidate'
+
+            
+                        
+definitions:
+  drugsCandidates:
+    type: "object"
+    properties:
+      candidateId:
+        type: "string"
+      candidate:
+        type: "string"
+      nctCount:
+        type: "number"
+      avicennaCount:
+        type: "number"
+      maxPhase:
+        type: "string"
+      fdaLabelDate:
+        type: "string"
+        nullable: true
+    xml:
+      name: "drugsCandidates"
+  ashDrugsCandidate:
+    type: object
+    properties: 
+      candidateId:
+        type: "string"
+      sourceInformation:
+        type: "object"
+        properties:
+          ashSources:
+            type: "object"
+            properties:
+              ashId:
+                type: "string"
+              ashSentence:
+                type: "string"
+      maxDrugPhaseInformation:
+        type: "object"
+        properties:
+          nctId:
+            type: "string"
+          nctBriefTitle:
+            type: "string"
+          nctSentence:
+            type: "string"
+      clinicalTrialsInformation:
+        type: "object"
+        properties:
+          nctId:
+            type: "string"
+          nctBriefTitle:
+            type: "string"
+          nctSentence:
+            type: "string"
+      maxDrugPhaseNct:
+        type: "object"
+        properties:
+          nctId:
+            type: "string"
+          nctBriefTitle:
+            type: "string"
+          nctSentence:
+            type: "string"
+          nctInterventions:
+            type: "string"
+      nciInformation:
+        type: "object"
+        properties:
+          drugCanonicalNameSynonymsGroups:
+            type: "object"
+            properties:
+              subGroupDrugFdaApplicationInfo:
+                type: "object"
+                properties:
+                  drugName:
+                    type: "string"
+                  subGroupDrugFdaLabelLink:
+                    type: "string"
+              subGroupDrugApplicationNumber:
+                type: "string"
+              subGroupDrugLastFdaLabelDate:
+                type: "string"
+              subGroupDrugSynonyms:
+                type: "string"
+              subGroupDrugCanonicalName:
+                type: "string"
+      foundInAvicennaInformation:
+        type: "object"
+        properties:
+            count:
+              type: "number"
+            drugName:
+              type: "string"
+  nctDrugsCandidate:
+    type: object
+    properties: 
+      candidateId:
+        type: "string"
+      sourceInformation:
+        type: "object"
+        properties:
+          nctSources:
+            type: "object"
+            properties:
+              nctId:
+                type: "string"
+              nctBriefTitle:
+                type: "string"
+              nctSentence:
+                type: "string"
+      maxDrugPhaseInformation:
+        type: "object"
+        properties:
+          nctId:
+            type: "string"
+          nctBriefTitle:
+            type: "string"
+          nctSentence:
+            type: "string"
+      clinicalTrialsInformation:
+        type: "object"
+        properties:
+          nctId:
+            type: "string"
+          nctBriefTitle:
+            type: "string"
+          nctSentence:
+            type: "string"
+      maxDrugPhaseNct:
+        type: "object"
+        properties:
+          nctId:
+            type: "string"
+          nctBriefTitle:
+            type: "string"
+          nctSentence:
+            type: "string"
+          nctInterventions:
+            type: "string"
+      nciInformation:
+        type: "object"
+          properties:
+            drugCanonicalNameSynonymsGroups:
+              type: "object"
+              properties:
+                subGroupDrugFdaApplicationInfo:
+                  type: "object"
+                  properties:
+                    drugName:
+                      type: "string"
+                    subGroupDrugFdaLabelLink:
+                      type: "string"
+                subGroupDrugApplicationNumber:
+                  type: "string"
+                subGroupDrugLastFdaLabelDate:
+                  type: "string"
+                subGroupDrugSynonyms:
+                  type: "string"
+                subGroupDrugCanonicalName:
+                  type: "string"
+      foundInAvicennaInformation:
+        type: "object"
+        properties:
+            count:
+              type: "number"
+            drugName:
+              type: "string"
