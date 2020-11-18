@@ -740,7 +740,7 @@ def initialize_db():
 
 def process_list(list):
     for each_file in list:
-        process_old_file_blacklisting(each_file)
+        process_old_file_blacklisting('./experiments/'+each_file)
 
 def process_old_file_blacklisting(file):
     print('Connecting to candidates database')
@@ -773,7 +773,10 @@ def process_old_file_blacklisting(file):
                     cursor.execute("COMMIT")
     return
 
-#main(test_file, 1)
+initialize_db()
+a = os.listdir('./experiments')
+process_list(a)
+main(test_file, 1)
 #process_old_file_blacklisting(test_file)
 #preprocess_blacklists(test_file)
 # deThesaurusify('./Thesaurus.owl', 'text_thesaurus')
